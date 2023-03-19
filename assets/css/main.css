@@ -1819,6 +1819,10 @@ ul.romero li:before {
   margin-left: -35px;
 }
 
+ul.romero li {
+  list-style: none;
+}
+
 ul.grid {
   display: flex;
   flex-wrap: wrap;
@@ -1827,6 +1831,20 @@ ul.grid {
 ul.grid li {
   width: 33.33%;
   padding-right: 1rem;
+}
+
+ul.contact li {
+  width: 50%;
+}
+
+ul.contact li:last-child {
+  text-align: right;
+}
+
+ul.contact {
+  background: #dcf7ee;
+  padding: 1rem;
+  border-radius: 10px;
 }
 
 @media screen and (max-width: 736px) {
