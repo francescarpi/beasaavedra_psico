@@ -1851,6 +1851,15 @@ ul.contact {
   ul.grid li {
     width: 100%;
   }
+
+  ul.contact li {
+    width: 100%;
+    padding-left: 1rem;
+  }
+
+  ul.contact li:last-child {
+    text-align: left;
+  }
 }
 
 ol {
