@@ -1842,8 +1842,8 @@ ul.contact li:last-child {
 }
 
 ul.contact {
-  background: #dcf7ee;
-  padding: 1rem;
+  background: #d0dbc2;
+  padding: 0.5rem 0rem 0.5rem 1rem;
   border-radius: 10px;
 }
 
