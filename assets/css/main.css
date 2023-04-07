@@ -2343,3 +2343,13 @@ body.is-preload #wrapper {
     background-size: cover;
   }
 }
+
+.lang {
+    display: flex;
+    justify-content: end;
+    padding: .5rem 2rem;
+}
+
+.lang a {
+    color: #214e3f;
+}
