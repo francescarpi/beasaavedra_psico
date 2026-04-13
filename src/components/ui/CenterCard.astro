@@ -1,5 +1,4 @@
 ---
-import { t } from '../../i18n/utils';
 import type { Center } from '../../data/centers';
 import { Icon } from 'astro-icon/components';
 
@@ -8,15 +7,10 @@ interface Props {
 }
 
 const { center } = Astro.props;
-
-const nameText = t(center.nameKey, 'ca');
 ---
 
 <div class="bg-surface-container-low p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-  <h4
-    class="text-xl font-serif text-primary mb-4"
-    data-i18n={center.nameKey}
-  >{nameText}</h4>
+  <h4 class="text-xl font-serif text-primary mb-4">{center.name}</h4>
   <div class="space-y-3">
     <!-- Address -->
     <div class="flex items-start gap-3 text-on-surface-variant">
