@@ -1,0 +1,21 @@
+---
+import { t } from '../../i18n/utils';
+---
+
+<section id="reflection" class="py-24 bg-surface-container-low overflow-hidden">
+  <div class="max-w-5xl mx-auto px-8 relative">
+    <!-- Decorative giant quote mark -->
+    <span
+      class="absolute -top-16 -left-8 text-[15rem] font-serif text-surface-container-highest opacity-50 select-none"
+      aria-hidden="true"
+    >&ldquo;</span>
+
+    <!-- Quote text -->
+    <div class="relative z-10 text-center">
+      <h2
+        class="text-3xl md:text-5xl font-serif text-primary leading-relaxed"
+        data-i18n="quote.text"
+      >{t('quote.text', 'ca')}</h2>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,169 @@
+---
+// NavMobile.astro — island component (use with client:load)
+// Hamburger button + fullscreen slide-in overlay with nav links.
+import { t } from '../../i18n/utils';
+import { Icon } from 'astro-icon/components';
+---
+
+<!-- Hamburger trigger button -->
+<button
+  id="nav-mobile-toggle"
+  class="md:hidden text-primary p-2 rounded-lg hover:bg-primary-container/20 transition-colors"
+  aria-label={t('nav.mobile.open', 'ca')}
+  data-i18n-aria="nav.mobile.open"
+  aria-expanded="false"
+  aria-controls="nav-mobile-overlay"
+>
+  <Icon
+    id="nav-icon-menu"
+    name="material-symbols:menu"
+    class="text-[28px] leading-none"
+    aria-hidden="true"
+  />
+  <Icon
+    id="nav-icon-close"
+    name="material-symbols:close"
+    class="text-[28px] leading-none hidden"
+    aria-hidden="true"
+  />
+</button>
+
+<!-- Full-screen overlay -->
+<div
+  id="nav-mobile-overlay"
+  class="nav-overlay fixed inset-0 z-40 flex flex-col glass-nav"
+  role="dialog"
+  aria-modal="true"
+  aria-label={t('nav.mobile.label', 'ca')}
+  data-i18n-aria="nav.mobile.label"
+  hidden
+>
+  <!-- Close button row -->
+  <div class="flex justify-end px-6 pt-5 pb-4">
+    <button
+      id="nav-mobile-close"
+      class="text-primary p-2 rounded-lg hover:bg-primary-container/20 transition-colors"
+      aria-label={t('nav.mobile.close', 'ca')}
+      data-i18n-aria="nav.mobile.close"
+    >
+      <Icon name="material-symbols:close" class="text-[28px] leading-none" aria-hidden="true" />
+    </button>
+  </div>
+
+  <!-- Nav links -->
+  <nav class="flex flex-col gap-2 px-8 pt-4 flex-1" aria-label="Navegació mòbil">
+    <a
+      href="#"
+      data-i18n="nav.home"
+      data-nav-link
+      class="nav-overlay-link text-2xl font-serif text-on-surface py-4 border-b border-outline-variant hover:text-primary transition-colors"
+    >{t('nav.home', 'ca')}</a>
+    <a
+      href="#about"
+      data-i18n="nav.about"
+      data-nav-link
+      class="nav-overlay-link text-2xl font-serif text-on-surface py-4 border-b border-outline-variant hover:text-primary transition-colors"
+    >{t('nav.about', 'ca')}</a>
+    <a
+      href="#services"
+      data-i18n="nav.services"
+      data-nav-link
+      class="nav-overlay-link text-2xl font-serif text-on-surface py-4 border-b border-outline-variant hover:text-primary transition-colors"
+    >{t('nav.services', 'ca')}</a>
+    <a
+      href="#contact"
+      data-i18n="nav.contact"
+      data-nav-link
+      class="nav-overlay-link text-2xl font-serif text-on-surface py-4 border-b border-outline-variant hover:text-primary transition-colors"
+    >{t('nav.contact', 'ca')}</a>
+
+    <!-- Book CTA -->
+    <a
+      href="#contact"
+      data-i18n="nav.book"
+      class="nav-overlay-link mt-8 inline-block bg-primary text-on-primary text-center px-8 py-4 rounded-xl text-lg font-medium shadow-sm hover:shadow-xl transition-all"
+    >{t('nav.book', 'ca')}</a>
+  </nav>
+</div>
+
+<style>
+  .nav-overlay {
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    pointer-events: none;
+  }
+  .nav-overlay.open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+</style>
+
+<script>
+  function initNavMobile() {
+    const toggleBtn = document.getElementById(
+      'nav-mobile-toggle',
+    ) as HTMLButtonElement | null;
+    const closeBtn = document.getElementById(
+      'nav-mobile-close',
+    ) as HTMLButtonElement | null;
+    const overlay = document.getElementById(
+      'nav-mobile-overlay',
+    ) as HTMLElement | null;
+    const iconMenu = document.getElementById(
+      'nav-icon-menu',
+    ) as HTMLElement | null;
+    const iconClose = document.getElementById(
+      'nav-icon-close',
+    ) as HTMLElement | null;
+
+    if (!toggleBtn || !overlay || !closeBtn || !iconMenu || !iconClose) return;
+
+    function openMenu() {
+      overlay!.removeAttribute('hidden');
+      // Trigger transition on next frame
+      requestAnimationFrame(() => overlay!.classList.add('open'));
+      toggleBtn!.setAttribute('aria-expanded', 'true');
+      iconMenu!.classList.add('hidden');
+      iconClose!.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      overlay!.classList.remove('open');
+      toggleBtn!.setAttribute('aria-expanded', 'false');
+      iconMenu!.classList.remove('hidden');
+      iconClose!.classList.add('hidden');
+      document.body.style.overflow = '';
+      // Hide after transition
+      overlay!.addEventListener(
+        'transitionend',
+        () => overlay!.setAttribute('hidden', ''),
+        { once: true },
+      );
+    }
+
+    toggleBtn.addEventListener('click', openMenu);
+    closeBtn.addEventListener('click', closeMenu);
+
+    // Close when a nav link is clicked
+    overlay.querySelectorAll('.nav-overlay-link').forEach((link) => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && overlay!.classList.contains('open')) {
+        closeMenu();
+        toggleBtn!.focus();
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initNavMobile);
+  } else {
+    initNavMobile();
+  }
+</script>

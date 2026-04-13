@@ -1,0 +1,30 @@
+---
+import { t } from '../../i18n/utils';
+import ServiceCard from '../ui/ServiceCard.astro';
+import { services } from '../../data/services';
+---
+
+<section id="services" class="py-32 bg-surface-container">
+  <div class="max-w-7xl mx-auto px-8">
+
+    <!-- Section header -->
+    <div class="text-center mb-20 space-y-4">
+      <h2
+        class="text-4xl md:text-5xl font-serif text-on-surface"
+        data-i18n="services.title"
+      >{t('services.title', 'ca')}</h2>
+      <p
+        class="text-on-surface-variant max-w-2xl mx-auto text-lg font-light"
+        data-i18n="services.subtitle"
+      >{t('services.subtitle', 'ca')}</p>
+    </div>
+
+    <!-- Service cards stacked vertically -->
+    <div class="grid grid-cols-1 gap-12">
+      {services.map((service) => (
+        <ServiceCard service={service} />
+      ))}
+    </div>
+
+  </div>
+</section>

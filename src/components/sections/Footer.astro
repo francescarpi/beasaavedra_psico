@@ -1,0 +1,68 @@
+---
+import { t } from '../../i18n/utils';
+import { Icon } from 'astro-icon/components';
+---
+
+<footer class="bg-surface-container-low">
+  <div class="flex flex-col md:flex-row justify-between items-center w-full px-12 py-16 gap-8 max-w-7xl mx-auto">
+
+    <!-- Brand + tagline -->
+    <div class="space-y-4 text-center md:text-left">
+      <a
+        class="text-xl font-serif text-primary"
+        href="#"
+        data-i18n="footer.brand"
+      >{t('footer.brand', 'ca')}</a>
+      <p
+        class="text-on-surface-variant text-sm max-w-xs font-light"
+        data-i18n="footer.tagline"
+      >{t('footer.tagline', 'ca')}</p>
+    </div>
+
+    <!-- Links -->
+    <div class="flex flex-wrap justify-center gap-8 items-center">
+      <a
+        class="text-on-surface-variant hover:underline decoration-primary/30 transition-all"
+        href="#"
+        data-i18n="footer.privacy"
+      >{t('footer.privacy', 'ca')}</a>
+      <a
+        class="text-on-surface-variant hover:underline decoration-primary/30 transition-all"
+        href="#"
+        data-i18n="footer.terms"
+      >{t('footer.terms', 'ca')}</a>
+      <a
+        class="text-on-surface-variant hover:underline decoration-primary/30 transition-all"
+        href="#"
+        data-i18n="footer.portal"
+      >{t('footer.portal', 'ca')}</a>
+    </div>
+
+    <!-- Social icons + copyright -->
+    <div class="flex flex-col items-center md:items-end gap-4">
+      <div class="flex gap-4">
+        <a
+          class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all"
+          href="#"
+          aria-label={t('footer.social.share.label', 'ca')}
+          data-i18n-aria="footer.social.share.label"
+        >
+          <Icon name="material-symbols:share" class="text-sm" aria-hidden="true" />
+        </a>
+        <a
+          class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all"
+          href="mailto:info@bspsicologia.cat"
+          aria-label={t('footer.social.email.label', 'ca')}
+          data-i18n-aria="footer.social.email.label"
+        >
+          <Icon name="material-symbols:mail" class="text-sm" aria-hidden="true" />
+        </a>
+      </div>
+      <p
+        class="text-on-surface-variant text-xs font-medium"
+        data-i18n="footer.copyright"
+      >{t('footer.copyright', 'ca')}</p>
+    </div>
+
+  </div>
+</footer>

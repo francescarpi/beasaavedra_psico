@@ -1,0 +1,114 @@
+---
+import { t } from '../../i18n/utils';
+import LangToggle from '../ui/LangToggle.astro';
+import NavMobile from '../ui/NavMobile.astro';
+---
+
+<nav class="fixed top-0 left-0 right-0 z-50 glass-nav">
+  <div class="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
+    <!-- Brand -->
+    <a
+      class="text-2xl font-serif italic text-primary"
+      href="#"
+      data-i18n="nav.brand"
+    >{t('nav.brand', 'ca')}</a>
+
+    <!-- Desktop links -->
+    <div class="hidden md:flex gap-8 items-center">
+      <a
+        class="text-primary font-bold border-b-2 border-primary transition-colors duration-300"
+        href="#"
+        data-i18n="nav.home"
+        data-nav-link
+      >{t('nav.home', 'ca')}</a>
+      <a
+        class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300"
+        href="#about"
+        data-i18n="nav.about"
+        data-nav-link
+      >{t('nav.about', 'ca')}</a>
+      <a
+        class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300"
+        href="#services"
+        data-i18n="nav.services"
+        data-nav-link
+      >{t('nav.services', 'ca')}</a>
+      <a
+        class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300"
+        href="#contact"
+        data-i18n="nav.contact"
+        data-nav-link
+      >{t('nav.contact', 'ca')}</a>
+
+      <!-- Book CTA -->
+      <a
+        class="bg-primary text-on-primary px-6 py-2.5 rounded-xl font-medium hover:shadow-lg transition-all duration-300"
+        href="#contact"
+        data-i18n="nav.book"
+      >{t('nav.book', 'ca')}</a>
+
+      <!-- Lang Toggle -->
+      <LangToggle />
+    </div>
+
+    <!-- Mobile: NavMobile island (hamburger + overlay) -->
+    <NavMobile />
+  </div>
+</nav>
+
+<script>
+  function initActiveNav() {
+    const sections = document.querySelectorAll<HTMLElement>('section[id], header[id]');
+    const navLinks = document.querySelectorAll<HTMLAnchorElement>('[data-nav-link]');
+
+    function setActive(id: string) {
+      navLinks.forEach((link) => {
+        const href = link.getAttribute('href');
+        const isActive =
+          href === `#${id}` ||
+          (id === 'home' && (href === '#' || href === '#home'));
+
+        if (isActive) {
+          link.classList.add('font-bold', 'border-b-2', 'border-primary', 'text-primary');
+          link.classList.remove('font-medium', 'text-on-surface-variant');
+        } else {
+          link.classList.remove('font-bold', 'border-b-2', 'border-primary', 'text-primary');
+          link.classList.add('font-medium', 'text-on-surface-variant');
+        }
+      });
+    }
+
+    // IntersectionObserver: highlight nav link for section in view
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id || 'home';
+            setActive(id);
+          }
+        });
+      },
+      {
+        rootMargin: '-20% 0px -60% 0px',
+        threshold: 0,
+      },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    // Also respond to click — immediately update active state
+    navLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        const href = link.getAttribute('href') ?? '#';
+        const id = href === '#' ? 'home' : href.replace('#', '');
+        setActive(id);
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initActiveNav);
+  } else {
+    initActiveNav();
+  }
+</script>

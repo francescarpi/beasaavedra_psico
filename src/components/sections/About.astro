@@ -1,0 +1,77 @@
+---
+import { t } from '../../i18n/utils';
+import { Image } from 'astro:assets';
+import aboutImg from '../../assets/images/about.svg';
+---
+
+<section id="about" class="py-32 bg-surface">
+  <div class="max-w-7xl mx-auto px-8 grid md:grid-cols-2 gap-20 items-center">
+
+    <!-- Left: image + floating credential card -->
+    <div class="order-2 md:order-1 relative">
+      <div class="aspect-[3/4] rounded-xl overflow-hidden bg-surface-container-high">
+        <Image
+          src={aboutImg}
+          alt={t('about.image.alt', 'ca')}
+          width={900}
+          height={1200}
+          class="w-full h-full object-cover"
+          data-i18n-alt="about.image.alt"
+        />
+      </div>
+
+      <!-- Floating credential card (desktop only) -->
+      <div class="absolute -bottom-10 -right-10 p-8 bg-surface-container-lowest rounded-xl shadow-lg max-w-xs hidden lg:block">
+        <a
+          href="https://www.copc.cat/es/contacte/beatriz-saavedra-martinez-59869"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-primary transition-colors"
+        >
+          <p
+            class="font-serif text-primary text-lg"
+            data-i18n="about.credential.text"
+          >{t('about.credential.text', 'ca')}</p>
+        </a>
+      </div>
+    </div>
+
+    <!-- Right: content -->
+    <div class="order-1 md:order-2 space-y-8">
+      <h2
+        class="text-4xl md:text-5xl font-serif text-on-surface"
+        data-i18n="about.title"
+      >{t('about.title', 'ca')}</h2>
+
+      <div class="space-y-6 text-on-surface-variant text-lg font-light leading-relaxed">
+        <p data-i18n="about.p1">{t('about.p1', 'ca')}</p>
+        <p data-i18n="about.p2">{t('about.p2', 'ca')}</p>
+      </div>
+
+      <!-- Stats grid -->
+      <div class="grid grid-cols-2 gap-8 pt-6">
+        <div>
+          <div
+            class="text-3xl font-serif text-primary mb-1"
+            data-i18n="about.stats.yearsValue"
+          >{t('about.stats.yearsValue', 'ca')}</div>
+          <div
+            class="text-sm uppercase tracking-wider font-semibold text-outline"
+            data-i18n="about.stats.years"
+          >{t('about.stats.years', 'ca')}</div>
+        </div>
+        <div>
+          <div
+            class="text-3xl font-serif text-primary mb-1"
+            data-i18n="about.stats.peopleValue"
+          >{t('about.stats.peopleValue', 'ca')}</div>
+          <div
+            class="text-sm uppercase tracking-wider font-semibold text-outline"
+            data-i18n="about.stats.people"
+          >{t('about.stats.people', 'ca')}</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

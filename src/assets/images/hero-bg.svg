@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <!-- Base gradient: warm green (top-left) → light neutral (bottom-right) -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#86b351" stop-opacity="0.65"/>
+      <stop offset="45%" stop-color="#c1f287" stop-opacity="0.40"/>
+      <stop offset="100%" stop-color="#f5f3f3" stop-opacity="0.90"/>
+    </linearGradient>
+
+    <!-- Radial warm glow: upper-left dappled light source -->
+    <radialGradient id="light-glow" cx="18%" cy="22%" r="55%">
+      <stop offset="0%" stop-color="#e8e4c1" stop-opacity="0.70"/>
+      <stop offset="100%" stop-color="#fbf9f8" stop-opacity="0.0"/>
+    </radialGradient>
+
+    <!-- Blur filters for bokeh layers -->
+    <filter id="blur-xl" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="45"/>
+    </filter>
+    <filter id="blur-lg" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="30"/>
+    </filter>
+    <filter id="blur-md" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="16"/>
+    </filter>
+    <filter id="blur-sm" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+    <filter id="blur-xs" x="-25%" y="-25%" width="150%" height="150%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+  </defs>
+
+  <!-- ── Base fill ── -->
+  <rect width="1920" height="1080" fill="#f0ede8"/>
+  <rect width="1920" height="1080" fill="url(#bg-grad)"/>
+  <!-- Warm dappled light bloom upper-left -->
+  <rect width="1920" height="1080" fill="url(#light-glow)"/>
+
+  <!-- ══════════════════════════════════════════
+       LAYER 1 — Deep background bokeh (largest, most diffuse)
+       Concentrated left-centre but spread across canvas
+  ══════════════════════════════════════════ -->
+
+  <!-- Big green blobs — back layer -->
+  <circle cx="210"  cy="290"  r="230" fill="#86b351" opacity="0.32" filter="url(#blur-xl)"/>
+  <circle cx="480"  cy="120"  r="200" fill="#a6d56e" opacity="0.38" filter="url(#blur-xl)"/>
+  <circle cx="80"   cy="620"  r="250" fill="#c1f287" opacity="0.28" filter="url(#blur-xl)"/>
+  <circle cx="700"  cy="400"  r="210" fill="#86b351" opacity="0.30" filter="url(#blur-xl)"/>
+  <circle cx="1100" cy="200"  r="190" fill="#a6d56e" opacity="0.24" filter="url(#blur-xl)"/>
+  <circle cx="1500" cy="600"  r="240" fill="#c1f287" opacity="0.22" filter="url(#blur-xl)"/>
+  <circle cx="1800" cy="300"  r="200" fill="#a6d56e" opacity="0.26" filter="url(#blur-xl)"/>
+  <circle cx="1700" cy="950"  r="220" fill="#86b351" opacity="0.24" filter="url(#blur-xl)"/>
+  <circle cx="350"  cy="900"  r="210" fill="#86b351" opacity="0.30" filter="url(#blur-xl)"/>
+  <circle cx="950"  cy="900"  r="180" fill="#c1f287" opacity="0.26" filter="url(#blur-xl)"/>
+
+  <!-- ══════════════════════════════════════════
+       LAYER 2 — Mid-background bokeh
+       Large blurs, varied greens + sage + warm gold
+  ══════════════════════════════════════════ -->
+
+  <circle cx="140"  cy="160"  r="160" fill="#a6d56e" opacity="0.44" filter="url(#blur-lg)"/>
+  <circle cx="560"  cy="320"  r="140" fill="#86b351" opacity="0.40" filter="url(#blur-lg)"/>
+  <circle cx="320"  cy="550"  r="170" fill="#c1f287" opacity="0.38" filter="url(#blur-lg)"/>
+  <circle cx="780"  cy="180"  r="130" fill="#a6d56e" opacity="0.42" filter="url(#blur-lg)"/>
+  <circle cx="1020" cy="480"  r="150" fill="#a6d56e" opacity="0.34" filter="url(#blur-lg)"/>
+  <circle cx="1300" cy="150"  r="140" fill="#c1f287" opacity="0.30" filter="url(#blur-lg)"/>
+  <circle cx="1600" cy="420"  r="160" fill="#86b351" opacity="0.28" filter="url(#blur-lg)"/>
+  <circle cx="1850" cy="700"  r="150" fill="#a6d56e" opacity="0.30" filter="url(#blur-lg)"/>
+  <circle cx="650"  cy="750"  r="140" fill="#86b351" opacity="0.34" filter="url(#blur-lg)"/>
+  <circle cx="1150" cy="820"  r="155" fill="#586248" opacity="0.22" filter="url(#blur-lg)"/>
+  <circle cx="1750" cy="100"  r="130" fill="#c1f287" opacity="0.32" filter="url(#blur-lg)"/>
+  <circle cx="900"  cy="650"  r="145" fill="#a6d56e" opacity="0.36" filter="url(#blur-lg)"/>
+
+  <!-- ══════════════════════════════════════════
+       LAYER 3 — Midground bokeh (medium blur, organic scatter)
+       Warm gold + sage tones mixed in
+  ══════════════════════════════════════════ -->
+
+  <circle cx="260"  cy="80"   r="90"  fill="#e8e4c1" opacity="0.50" filter="url(#blur-md)"/>
+  <circle cx="430"  cy="440"  r="100" fill="#a6d56e" opacity="0.46" filter="url(#blur-md)"/>
+  <circle cx="175"  cy="780"  r="85"  fill="#c1f287" opacity="0.44" filter="url(#blur-md)"/>
+  <circle cx="620"  cy="200"  r="95"  fill="#86b351" opacity="0.50" filter="url(#blur-md)"/>
+  <circle cx="850"  cy="380"  r="80"  fill="#a6d56e" opacity="0.54" filter="url(#blur-md)"/>
+  <circle cx="1080" cy="120"  r="100" fill="#a6d56e" opacity="0.44" filter="url(#blur-md)"/>
+  <circle cx="1250" cy="560"  r="90"  fill="#c1f287" opacity="0.46" filter="url(#blur-md)"/>
+  <circle cx="1450" cy="280"  r="95"  fill="#86b351" opacity="0.40" filter="url(#blur-md)"/>
+  <circle cx="1680" cy="650"  r="85"  fill="#86b351" opacity="0.38" filter="url(#blur-md)"/>
+  <circle cx="1900" cy="200"  r="75"  fill="#c1f287" opacity="0.40" filter="url(#blur-md)"/>
+  <circle cx="790"  cy="880"  r="100" fill="#a6d56e" opacity="0.42" filter="url(#blur-md)"/>
+  <circle cx="1380" cy="900"  r="90"  fill="#a6d56e" opacity="0.38" filter="url(#blur-md)"/>
+  <circle cx="1600" cy="980"  r="80"  fill="#c1f287" opacity="0.38" filter="url(#blur-md)"/>
+  <circle cx="520"  cy="940"  r="95"  fill="#586248" opacity="0.26" filter="url(#blur-md)"/>
+  <circle cx="1870" cy="480"  r="85"  fill="#86b351" opacity="0.34" filter="url(#blur-md)"/>
+
+  <!-- ══════════════════════════════════════════
+       LAYER 4 — Foreground bokeh highlights
+       Smaller, slightly sharper, brighter — simulate light through leaves
+       Concentrated upper-left but scattered across
+  ══════════════════════════════════════════ -->
+
+  <!-- Bright light-catch spots — upper-left quadrant (text area) -->
+  <circle cx="110"  cy="110"  r="55"  fill="#e8e4c1" opacity="0.58" filter="url(#blur-sm)"/>
+  <circle cx="340"  cy="195"  r="48"  fill="#c1f287" opacity="0.55" filter="url(#blur-sm)"/>
+  <circle cx="195"  cy="390"  r="52"  fill="#a6d56e" opacity="0.52" filter="url(#blur-sm)"/>
+  <circle cx="495"  cy="80"   r="45"  fill="#e8e4c1" opacity="0.54" filter="url(#blur-sm)"/>
+  <circle cx="68"   cy="460"  r="40"  fill="#c1f287" opacity="0.52" filter="url(#blur-sm)"/>
+  <circle cx="580"  cy="490"  r="50"  fill="#86b351" opacity="0.48" filter="url(#blur-sm)"/>
+  <circle cx="410"  cy="680"  r="44"  fill="#a6d56e" opacity="0.44" filter="url(#blur-sm)"/>
+
+  <!-- Light spots scattered right side -->
+  <circle cx="1050" cy="300"  r="48"  fill="#c1f287" opacity="0.46" filter="url(#blur-sm)"/>
+  <circle cx="1320" cy="440"  r="42"  fill="#a6d56e" opacity="0.44" filter="url(#blur-sm)"/>
+  <circle cx="1580" cy="180"  r="50"  fill="#a6d56e" opacity="0.46" filter="url(#blur-sm)"/>
+  <circle cx="1740" cy="380"  r="45"  fill="#c1f287" opacity="0.44" filter="url(#blur-sm)"/>
+  <circle cx="1820" cy="780"  r="40"  fill="#c1f287" opacity="0.40" filter="url(#blur-sm)"/>
+  <circle cx="930"  cy="760"  r="46"  fill="#86b351" opacity="0.40" filter="url(#blur-sm)"/>
+  <circle cx="1200" cy="950"  r="44"  fill="#a6d56e" opacity="0.38" filter="url(#blur-sm)"/>
+
+  <!-- ══════════════════════════════════════════
+       LAYER 5 — Tiny specular highlights
+       Near-sharp pinpoints of light — the "bokeh highlight rings"
+  ══════════════════════════════════════════ -->
+
+  <circle cx="155"  cy="235"  r="30"  fill="#c1f287" opacity="0.55" filter="url(#blur-xs)"/>
+  <circle cx="375"  cy="135"  r="25"  fill="#e8e4c1" opacity="0.58" filter="url(#blur-xs)"/>
+  <circle cx="290"  cy="470"  r="28"  fill="#c1f287" opacity="0.52" filter="url(#blur-xs)"/>
+  <circle cx="540"  cy="310"  r="22"  fill="#c1f287" opacity="0.55" filter="url(#blur-xs)"/>
+  <circle cx="145"  cy="660"  r="26"  fill="#a6d56e" opacity="0.50" filter="url(#blur-xs)"/>
+  <circle cx="480"  cy="820"  r="24"  fill="#a6d56e" opacity="0.48" filter="url(#blur-xs)"/>
+  <circle cx="710"  cy="540"  r="30"  fill="#a6d56e" opacity="0.52" filter="url(#blur-xs)"/>
+  <circle cx="870"  cy="230"  r="25"  fill="#c1f287" opacity="0.54" filter="url(#blur-xs)"/>
+  <circle cx="1120" cy="680"  r="28"  fill="#c1f287" opacity="0.46" filter="url(#blur-xs)"/>
+  <circle cx="1440" cy="760"  r="24"  fill="#a6d56e" opacity="0.44" filter="url(#blur-xs)"/>
+  <circle cx="1660" cy="520"  r="30"  fill="#c1f287" opacity="0.46" filter="url(#blur-xs)"/>
+  <circle cx="1880" cy="140"  r="22"  fill="#c1f287" opacity="0.50" filter="url(#blur-xs)"/>
+  <circle cx="1350" cy="340"  r="26"  fill="#c1f287" opacity="0.48" filter="url(#blur-xs)"/>
+  <circle cx="990"  cy="1000" r="28"  fill="#a6d56e" opacity="0.44" filter="url(#blur-xs)"/>
+
+  <!-- ══════════════════════════════════════════
+       FINAL VIGNETTE — subtle darkening at bottom-right edge
+       keeps focus on left-side text content
+  ══════════════════════════════════════════ -->
+  <radialGradient id="vignette" cx="85%" cy="85%" r="60%">
+    <stop offset="0%" stop-color="#43493a" stop-opacity="0.08"/>
+    <stop offset="100%" stop-color="#43493a" stop-opacity="0.0"/>
+  </radialGradient>
+  <rect width="1920" height="1080" fill="url(#vignette)"/>
+</svg>
