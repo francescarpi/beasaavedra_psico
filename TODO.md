@@ -8,4 +8,4 @@
 - [ ] Revisar en mobile
 - [x] Els noms dels centres no cal traduirlos.
 - [x] Els centres no apareixen al menu
-- [ ] Configurar precommit
+- [x] Configurar precommit
