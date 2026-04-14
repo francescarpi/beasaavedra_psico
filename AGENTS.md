@@ -4,6 +4,7 @@
 - **Type**: Astro + Tailwind CSS (SPA)
 - **Languages**: Catalan (default), Spanish
 - **Stack**: Astro 6, Tailwind v4, TypeScript
+- **Package Manager**: pnpm
 - **Main branch**: main (currently on `new_design` branch for redesign)
 
 ## Conventions
