@@ -19,7 +19,7 @@ import { Icon } from 'astro-icon/components';
 
       <div class="grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-6">
         <!-- Phone card -->
-        <div class="p-6 bg-surface-container-low rounded-2xl flex items-center gap-6 group hover:bg-primary-container/10 transition-colors">
+        <div class="p-6 bg-surface-container-low rounded-2xl flex flex-col md:flex-row items-center gap-4 md:gap-6 group hover:bg-primary-container/10 transition-colors">
           <div class="w-16 h-16 rounded-full bg-primary-container/20 flex items-center justify-center flex-shrink-0">
             <Icon name="material-symbols:call" class="text-primary text-3xl" aria-hidden="true" />
           </div>
@@ -30,7 +30,7 @@ import { Icon } from 'astro-icon/components';
             >{t('contact.phone.label', 'ca')}</p>
             <!-- Anti-scraping: href built by JS, display text reversed via CSS RTL so crawlers see gibberish -->
             <a
-              class="text-2xl font-serif text-on-surface hover:text-primary transition-colors italic"
+              class="text-base md:text-xl font-serif text-on-surface hover:text-primary transition-colors italic"
               href="javascript:void(0)"
               data-ctype="phone"
             ><span style="direction: rtl; unicode-bidi: bidi-override; display: inline-block;">785 144 816</span></a>
@@ -38,7 +38,7 @@ import { Icon } from 'astro-icon/components';
         </div>
 
         <!-- Email card -->
-        <div class="p-6 bg-surface-container-low rounded-2xl flex items-center gap-6 group hover:bg-primary-container/10 transition-colors">
+        <div class="p-6 bg-surface-container-low rounded-2xl flex flex-col md:flex-row items-center gap-4 md:gap-6 group hover:bg-primary-container/10 transition-colors">
           <div class="w-16 h-16 rounded-full bg-primary-container/20 flex items-center justify-center flex-shrink-0">
             <Icon name="material-symbols:mail" class="text-primary text-3xl" aria-hidden="true" />
           </div>
@@ -49,7 +49,7 @@ import { Icon } from 'astro-icon/components';
             >{t('contact.email.label', 'ca')}</p>
             <!-- Anti-scraping: href built by JS, display text reversed via CSS RTL so crawlers see gibberish -->
             <a
-              class="text-2xl font-serif text-on-surface hover:text-primary transition-colors italic"
+              class="text-base md:text-xl font-serif text-on-surface hover:text-primary transition-colors italic"
               href="javascript:void(0)"
               data-ctype="email"
             ><span style="direction: rtl; unicode-bidi: bidi-override; display: inline-block;">moc.liamg@aigolocisp.ardeevasb</span></a>

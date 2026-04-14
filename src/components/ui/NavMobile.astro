@@ -31,7 +31,7 @@ import { Icon } from 'astro-icon/components';
 <!-- Full-screen overlay -->
 <div
   id="nav-mobile-overlay"
-  class="nav-overlay fixed inset-0 z-40 flex flex-col glass-nav"
+  class="nav-overlay fixed inset-0 z-40 flex flex-col"
   role="dialog"
   aria-modal="true"
   aria-label={t('nav.mobile.label', 'ca')}
@@ -39,7 +39,7 @@ import { Icon } from 'astro-icon/components';
   hidden
 >
   <!-- Close button row -->
-  <div class="flex justify-end px-6 pt-5 pb-4">
+  <div class="flex justify-end px-4 pt-5 pb-4">
     <button
       id="nav-mobile-close"
       class="text-primary p-2 rounded-lg hover:bg-primary-container/20 transition-colors"
@@ -51,7 +51,7 @@ import { Icon } from 'astro-icon/components';
   </div>
 
   <!-- Nav links -->
-  <nav class="flex flex-col gap-2 px-8 pt-4 flex-1" aria-label="Navegació mòbil">
+  <nav class="flex flex-col gap-2 px-4 flex-1 bg-white pb-4" aria-label="Navegació mòbil">
     <a
       href="#"
       data-i18n="nav.home"
@@ -98,6 +98,7 @@ import { Icon } from 'astro-icon/components';
     transform: translateY(-100%);
     transition: opacity 0.25s ease, transform 0.25s ease;
     pointer-events: none;
+    background-color: #fbf9f8;
   }
   .nav-overlay.open {
     opacity: 1;
