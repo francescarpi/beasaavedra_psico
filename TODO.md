@@ -7,4 +7,5 @@
 - [ ] Opcio de menu activa quedi seleccionada
 - [ ] Revisar en mobile
 - [ ] Els noms dels centres no cal traduirlos.
+- [ ] Els centres no apareixen al menu
 
