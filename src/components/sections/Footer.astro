@@ -1,6 +1,7 @@
 ---
 import { t } from '../../i18n/utils';
-import { Icon } from 'astro-icon/components';
+import instagramIcon from '../../assets/images/instagram.svg?url';
+import linkedinIcon from '../../assets/images/linkedin.svg?url';
 ---
 
 <footer class="bg-surface-container-low">
@@ -19,43 +20,30 @@ import { Icon } from 'astro-icon/components';
       >{t('footer.tagline', 'ca')}</p>
     </div>
 
-    <!-- Links -->
-    <div class="flex flex-wrap justify-center gap-8 items-center">
-      <a
-        class="text-on-surface-variant hover:underline decoration-primary/30 transition-all"
-        href="#"
-        data-i18n="footer.privacy"
-      >{t('footer.privacy', 'ca')}</a>
-      <a
-        class="text-on-surface-variant hover:underline decoration-primary/30 transition-all"
-        href="#"
-        data-i18n="footer.terms"
-      >{t('footer.terms', 'ca')}</a>
-      <a
-        class="text-on-surface-variant hover:underline decoration-primary/30 transition-all"
-        href="#"
-        data-i18n="footer.portal"
-      >{t('footer.portal', 'ca')}</a>
-    </div>
+    
 
     <!-- Social icons + copyright -->
     <div class="flex flex-col items-center md:items-end gap-4">
       <div class="flex gap-4">
         <a
           class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all"
-          href="#"
-          aria-label={t('footer.social.share.label', 'ca')}
-          data-i18n-aria="footer.social.share.label"
+          href="https://www.instagram.com/beatrizsaavedra.psicologia/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={t('footer.social.instagram.label', 'ca')}
+          data-i18n-aria="footer.social.instagram.label"
         >
-          <Icon name="material-symbols:share" class="text-sm" aria-hidden="true" />
+          <img src={instagramIcon} class="w-5 h-5" alt="" aria-hidden="true" />
         </a>
         <a
           class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all"
-          href="mailto:info@bspsicologia.cat"
-          aria-label={t('footer.social.email.label', 'ca')}
-          data-i18n-aria="footer.social.email.label"
+          href="https://es.linkedin.com/in/beatriz-saavedra"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={t('footer.social.linkedin.label', 'ca')}
+          data-i18n-aria="footer.social.linkedin.label"
         >
-          <Icon name="material-symbols:mail" class="text-sm" aria-hidden="true" />
+          <img src={linkedinIcon} class="w-5 h-5" alt="" aria-hidden="true" />
         </a>
       </div>
       <p
