@@ -1,4 +1,0 @@
-- [ ] Google analytics
-- [ ] Revisar que el SEO estigui be
-- [ ] Revisar sitemap.xml
-- [ ] Revisar en mobile
