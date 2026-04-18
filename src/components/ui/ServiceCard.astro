@@ -1,0 +1,94 @@
+---
+import { t } from '../../i18n/utils';
+import type { Service } from '../../data/services';
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  service: Service;
+}
+
+const { service } = Astro.props;
+
+// Background and text color based on variant
+const variantClasses: Record<Service['variant'], {
+  card: string;
+  iconBg: string;
+  icon: string;
+  title: string;
+  desc: string;
+  ecoBullet: string;
+  itemText: string;
+}> = {
+  white: {
+    card: 'bg-surface-container-lowest',
+    iconBg: 'bg-primary-container/20',
+    icon: 'text-primary',
+    title: 'text-on-surface',
+    desc: 'text-on-surface-variant',
+    ecoBullet: 'text-primary-container',
+    itemText: 'text-on-surface-variant',
+  },
+  secondary: {
+    card: 'bg-secondary-container',
+    iconBg: 'bg-white/40',
+    icon: 'text-on-secondary-container',
+    title: 'text-on-secondary-container',
+    desc: 'text-on-secondary-container/80',
+    ecoBullet: 'text-on-secondary-container/40',
+    itemText: 'text-on-secondary-container/90',
+  },
+  tertiary: {
+    card: 'bg-tertiary-fixed',
+    iconBg: 'bg-white/40',
+    icon: 'text-on-tertiary-fixed',
+    title: 'text-on-tertiary-fixed',
+    desc: 'text-on-tertiary-fixed-variant',
+    ecoBullet: 'text-primary',
+    itemText: 'text-on-tertiary-fixed-variant',
+  },
+};
+
+const v = variantClasses[service.variant];
+const titleText = t(service.titleKey, 'ca');
+const descText = t(service.descriptionKey, 'ca');
+---
+
+<div class={`${v.card} rounded-3xl p-10 shadow-sm`}>
+  <!-- Header -->
+  <div class="flex items-center gap-4 mb-10">
+    <div class={`w-16 h-16 rounded-2xl ${v.iconBg} flex items-center justify-center`}>
+      <Icon
+        name={service.icon}
+        class={`${v.icon} text-4xl`}
+        aria-hidden="true"
+      />
+    </div>
+    <div>
+      <h3
+        class={`text-3xl font-serif ${v.title}`}
+        data-i18n={service.titleKey}
+      >{titleText}</h3>
+      <p
+        class={`${v.desc} font-light`}
+        data-i18n={service.descriptionKey}
+      >{descText}</p>
+    </div>
+  </div>
+
+  <!-- Specialty grid -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-4 gap-x-8">
+    {service.items.map((itemKey) => (
+      <div class="flex items-start gap-3 group">
+        <Icon
+          name="material-symbols:eco-outline"
+          class={`${v.ecoBullet} mt-1 text-xl group-hover:scale-110 transition-transform`}
+          aria-hidden="true"
+        />
+        <span
+          class={`${v.itemText} font-medium`}
+          data-i18n={itemKey}
+        >{t(itemKey, 'ca')}</span>
+      </div>
+    ))}
+  </div>
+</div>

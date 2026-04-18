@@ -1,0 +1,99 @@
+---
+// LangToggle.astro — island component (use with client:load)
+// Reads the current lang from <html lang> and toggles between 'ca' and 'es'.
+import { t } from '../../i18n/utils';
+---
+
+<div
+  class="lang-toggle flex items-center gap-1 text-sm font-semibold rounded-full px-3 py-1.5 bg-secondary-container text-on-secondary-container"
+  role="group"
+  aria-label={t('lang.toggle.label', 'ca')}
+  data-i18n-aria="lang.toggle.label"
+>
+  <button
+    id="lang-ca"
+    class="lang-btn px-2 py-0.5 rounded-full transition-colors duration-200"
+    aria-pressed="true"
+    aria-label={t('lang.ca.label', 'ca')}
+    data-i18n-aria="lang.ca.label"
+    data-lang="ca"
+  >
+    CA
+  </button>
+  <span class="opacity-40 select-none" aria-hidden="true">|</span>
+  <button
+    id="lang-es"
+    class="lang-btn px-2 py-0.5 rounded-full transition-colors duration-200"
+    aria-pressed="false"
+    aria-label={t('lang.es.label', 'ca')}
+    data-i18n-aria="lang.es.label"
+    data-lang="es"
+  >
+    ES
+  </button>
+</div>
+
+<style>
+  .lang-btn {
+    background: transparent;
+    cursor: pointer;
+    color: inherit;
+    opacity: 0.55;
+    font-weight: 600;
+  }
+  .lang-btn.active,
+  .lang-btn[aria-pressed="true"] {
+    background-color: var(--color-secondary);
+    color: var(--color-on-secondary);
+    opacity: 1;
+    border-radius: 9999px;
+  }
+  .lang-btn:hover:not(.active) {
+    opacity: 0.85;
+  }
+</style>
+
+<script>
+  import { switchLang, getLang } from '../../i18n/utils';
+  import type { Lang } from '../../i18n/utils';
+
+  function initLangToggle() {
+    const currentLang: Lang = getLang();
+
+    // Reflect initial state
+    document
+      .querySelectorAll<HTMLButtonElement>('.lang-btn')
+      .forEach((btn) => {
+        const lang = btn.getAttribute('data-lang') as Lang;
+        const active = lang === currentLang;
+        btn.setAttribute('aria-pressed', String(active));
+        btn.classList.toggle('active', active);
+      });
+
+    // Wire click handlers
+    document
+      .querySelectorAll<HTMLButtonElement>('.lang-btn')
+      .forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const lang = btn.getAttribute('data-lang') as Lang;
+          switchLang(lang);
+
+          // Update toggle UI
+          document
+            .querySelectorAll<HTMLButtonElement>('.lang-btn')
+            .forEach((b) => {
+              const active = b.getAttribute('data-lang') === lang;
+              b.setAttribute('aria-pressed', String(active));
+              b.classList.toggle('active', active);
+            });
+        });
+      });
+  }
+
+  // Run after DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initLangToggle);
+  } else {
+    initLangToggle();
+  }
+</script>

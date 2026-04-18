@@ -1,0 +1,77 @@
+---
+import { t } from '../../i18n/utils';
+import { Icon } from 'astro-icon/components';
+---
+
+<section id="contact" class="py-32 bg-surface-container-lowest">
+  <div class="max-w-5xl mx-auto px-8">
+    <div class="space-y-12">
+      <div>
+        <h2
+          class="text-4xl font-serif text-on-surface mb-4"
+          data-i18n="contact.title"
+        >{t('contact.title', 'ca')}</h2>
+        <p
+          class="text-on-surface-variant font-light"
+          data-i18n="contact.description"
+        >{t('contact.description', 'ca')}</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-6">
+        <!-- Phone card -->
+        <div class="p-6 bg-surface-container-low rounded-2xl flex flex-col md:flex-row items-center gap-4 md:gap-6 group hover:bg-primary-container/10 transition-colors">
+          <div class="w-16 h-16 rounded-full bg-primary-container/20 flex items-center justify-center flex-shrink-0">
+            <Icon name="material-symbols:call" class="text-primary text-3xl" aria-hidden="true" />
+          </div>
+          <div>
+            <p
+              class="text-xs font-bold text-outline uppercase tracking-widest mb-1"
+              data-i18n="contact.phone.label"
+            >{t('contact.phone.label', 'ca')}</p>
+            <!-- Anti-scraping: href built by JS, display text reversed via CSS RTL so crawlers see gibberish -->
+            <a
+              class="text-base md:text-xl font-serif text-on-surface hover:text-primary transition-colors italic"
+              href="javascript:void(0)"
+              data-ctype="phone"
+            ><span style="direction: rtl; unicode-bidi: bidi-override; display: inline-block;">785 144 816</span></a>
+          </div>
+        </div>
+
+        <!-- Email card -->
+        <div class="p-6 bg-surface-container-low rounded-2xl flex flex-col md:flex-row items-center gap-4 md:gap-6 group hover:bg-primary-container/10 transition-colors">
+          <div class="w-16 h-16 rounded-full bg-primary-container/20 flex items-center justify-center flex-shrink-0">
+            <Icon name="material-symbols:mail" class="text-primary text-3xl" aria-hidden="true" />
+          </div>
+          <div>
+            <p
+              class="text-xs font-bold text-outline uppercase tracking-widest mb-1"
+              data-i18n="contact.email.label"
+            >{t('contact.email.label', 'ca')}</p>
+            <!-- Anti-scraping: href built by JS, display text reversed via CSS RTL so crawlers see gibberish -->
+            <a
+              class="text-base md:text-xl font-serif text-on-surface hover:text-primary transition-colors italic"
+              href="javascript:void(0)"
+              data-ctype="email"
+            ><span style="direction: rtl; unicode-bidi: bidi-override; display: inline-block;">moc.liamg@aigolocisp.ardevaasb</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Anti-scraping: build contact hrefs dynamically so raw HTML never exposes real links -->
+<script is:inline>
+  (function () {
+    // Phone
+    var p = document.querySelector('[data-ctype="phone"]');
+    if (p) {
+      p.href = ['tel:+34', '618', '441', '587'].join('');
+    }
+    // Email
+    var e = document.querySelector('[data-ctype="email"]');
+    if (e) {
+      e.href = ['mailto:', 'bsaavedra.psicologia', '@', 'gmail.com'].join('');
+    }
+  })();
+</script>

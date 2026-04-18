@@ -1,0 +1,56 @@
+---
+import { t } from '../../i18n/utils';
+import instagramIcon from '../../assets/images/instagram.svg?url';
+import linkedinIcon from '../../assets/images/linkedin.svg?url';
+---
+
+<footer class="bg-surface-container-low">
+  <div class="flex flex-col md:flex-row justify-between items-center w-full px-6 md:px-12 py-16 gap-8 max-w-7xl mx-auto">
+
+    <!-- Brand + tagline -->
+    <div class="space-y-4 text-center md:text-left">
+      <a
+        class="text-xl font-serif text-primary"
+        href="#"
+        data-i18n="footer.brand"
+      >{t('footer.brand', 'ca')}</a>
+      <p
+        class="text-on-surface-variant text-sm max-w-xs font-light"
+        data-i18n="footer.tagline"
+      >{t('footer.tagline', 'ca')}</p>
+    </div>
+
+    
+
+    <!-- Social icons + copyright -->
+    <div class="flex flex-col items-center md:items-end gap-4">
+      <div class="flex gap-4">
+        <a
+          class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all"
+          href="https://www.instagram.com/beatrizsaavedra.psicologia/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={t('footer.social.instagram.label', 'ca')}
+          data-i18n-aria="footer.social.instagram.label"
+        >
+          <img src={instagramIcon} class="w-5 h-5" alt="" aria-hidden="true" />
+        </a>
+        <a
+          class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all"
+          href="https://es.linkedin.com/in/beatriz-saavedra"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={t('footer.social.linkedin.label', 'ca')}
+          data-i18n-aria="footer.social.linkedin.label"
+        >
+          <img src={linkedinIcon} class="w-5 h-5" alt="" aria-hidden="true" />
+        </a>
+      </div>
+      <p
+        class="text-on-surface-variant text-xs font-medium"
+        data-i18n="footer.copyright"
+      >{t('footer.copyright', 'ca')}</p>
+    </div>
+
+  </div>
+</footer>

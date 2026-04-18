@@ -1,0 +1,80 @@
+---
+import { t } from '../../i18n/utils';
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
+import heroBg from '../../assets/images/background.jpg?url';
+import portrait from '../../assets/images/portrait.jpg';
+---
+
+<header id="home" class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-surface">
+  <!-- Background layer -->
+  <div class="absolute inset-0 z-0">
+    <img
+      src={heroBg}
+      alt={t('hero.bg.alt', 'ca')}
+      class="absolute inset-0 w-full h-full object-cover blur-sm"
+      data-i18n-alt="hero.bg.alt"
+      loading="eager"
+      aria-hidden="true"
+    />
+    <div class="absolute inset-0 bg-linear-to-tr from-primary-container/20 to-surface-container-low/40"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 max-w-7xl mx-auto px-8 grid md:grid-cols-2 gap-12 items-center">
+    <!-- Left: copy -->
+    <div class="space-y-8">
+      <!-- Headline -->
+      <h1 class="text-6xl md:text-7xl lg:text-8xl font-serif text-on-surface leading-tight -ml-1">
+        <span data-i18n="hero.title">{t('hero.title', 'ca')}</span>
+        <span
+          class="italic text-primary/80 block"
+          data-i18n="hero.titleEmphasis"
+        >{t('hero.titleEmphasis', 'ca')}</span>
+      </h1>
+
+      <!-- Description -->
+      <p
+        class="text-lg md:text-xl text-white max-w-lg leading-relaxed font-light"
+        data-i18n="hero.description"
+      >{t('hero.description', 'ca')}</p>
+
+      <!-- CTAs -->
+      <div class="flex flex-wrap gap-4 pt-4">
+        <a
+          href="#contact"
+          class="bg-primary text-on-primary px-8 py-4 rounded-xl text-lg font-medium shadow-sm hover:shadow-xl transition-all duration-300 flex items-center gap-2"
+          data-i18n="hero.cta.primary"
+        >
+          {t('hero.cta.primary', 'ca')}
+          <Icon name="material-symbols:calendar-today" aria-hidden="true" />
+        </a>
+        <a
+          href="#about"
+          class="bg-secondary-container text-on-secondary-container px-8 py-4 rounded-xl text-lg font-medium hover:bg-secondary-fixed transition-colors"
+          data-i18n="hero.cta.secondary"
+        >{t('hero.cta.secondary', 'ca')}</a>
+      </div>
+    </div>
+
+    <!-- Right: portrait -->
+    <div class="relative hidden md:block">
+      <!-- Decorative blur circles -->
+      <div class="absolute -top-12 -left-12 w-64 h-64 bg-tertiary-fixed rounded-full mix-blend-multiply filter blur-3xl opacity-30" aria-hidden="true"></div>
+      <div class="absolute -bottom-12 -right-12 w-64 h-64 bg-primary-fixed rounded-full mix-blend-multiply filter blur-3xl opacity-30" aria-hidden="true"></div>
+
+      <!-- Portrait frame -->
+      <div class="rounded-[2.5rem] overflow-hidden shadow-2xl relative bg-surface-container-lowest p-3">
+        <Image
+          src={portrait}
+          alt={t('hero.portrait.alt', 'ca')}
+          width={800}
+          height={1000}
+          class="w-full aspect-[4/5] object-cover rounded-[2rem]"
+          data-i18n-alt="hero.portrait.alt"
+          loading="eager"
+        />
+      </div>
+    </div>
+  </div>
+</header>

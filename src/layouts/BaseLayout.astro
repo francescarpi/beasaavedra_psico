@@ -1,0 +1,173 @@
+---
+import '../styles/global.css';
+import es from '../i18n/es.json';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Beatriz Saavedra — Psicòloga',
+  description = 'Psicòloga general sanitària. Teràpia adults, infantil, juvenil i reeducació. Lloret, Calella, Palafolls, Tordera, Blanes i consulta online',
+  keywords = 'psicologia, adults, infants, juvenil, lloret, blanes, palafolls, tordera, online'
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const baseUrl = 'https://bspsicologia.cat';
+const currentPath = Astro.url.pathname;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Beatriz Saavedra',
+  jobTitle: 'Psicòloga',
+  url: baseUrl,
+  description: 'Psicòloga general sanitària. Teràpia per a adults, infants, adolescents i reeducació psicopedagògica.',
+  telephone: '+34618441587',
+  email: 'bsaavedra.psicologia@gmail.com',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Lloret de Mar',
+    addressRegion: 'Girona',
+    addressCountry: 'ES',
+  },
+  image: `${baseUrl}/images/og-image.jpg`,
+  sameAs: [
+    'https://www.instagram.com/bspsicologia',
+  ],
+  priceRange: '€€',
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '09:00',
+      closes: '18:00',
+    },
+  ],
+  areaServed: {
+    '@type': 'State',
+    name: 'Catalunya',
+  },
+  availableService: [
+    { '@type': 'Service', name: 'Psicoteràpia per a adults' },
+    { '@type': 'Service', name: 'Psicoteràpia infantil i juvenil' },
+    { '@type': 'Service', name: 'Reeducació psicopedagògica' },
+  ],
+  memberOf: [
+    {
+      '@type': 'Organization',
+      name: 'Col·legi Oficial de Psicòlegs de Catalunya',
+      identifier: '27814',
+    },
+  ],
+};
+---
+
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FWG7R8QW6P"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag("js", new Date());
+      gtag("config", "G-FWG7R8QW6P");
+    </script>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#4A6741" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:locale" content="ca_ES" />
+    <meta property="og:image" content={`${baseUrl}/images/og-image.jpg`} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Beatriz Saavedra - Psicòloga" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${baseUrl}/images/og-image.jpg`} />
+
+    <!-- hreflang -->
+    <link rel="alternate" hreflang="ca" href={`${baseUrl}${currentPath}`} />
+    <link rel="alternate" hreflang="es" href={`${baseUrl}${currentPath}?lang=es`} />
+    <link rel="alternate" hreflang="x-default" href={`${baseUrl}${currentPath}`} />
+
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+     <!-- i18n boot: runs before paint to avoid flash of wrong language -->
+      <script is:inline define:vars={{ esTranslations: es }}>
+
+      (function () {
+        const lang = localStorage.getItem('lang') || 'ca';
+        document.documentElement.lang = lang;
+
+        if (lang !== 'es') return;
+
+        const apply = () => {
+          document.querySelectorAll('[data-i18n]').forEach((el) => {
+            const key = el.getAttribute('data-i18n');
+            if (key && esTranslations[key]) {
+              el.textContent = esTranslations[key];
+            }
+          });
+
+          document.querySelectorAll('[data-i18n-alt]').forEach((el) => {
+            const key = el.getAttribute('data-i18n-alt');
+            if (key && esTranslations[key]) {
+              el.setAttribute('alt', esTranslations[key]);
+            }
+          });
+
+          document
+            .querySelectorAll('[data-i18n-aria], [data-i18n-aria-label]')
+            .forEach((el) => {
+              const key =
+                el.getAttribute('data-i18n-aria') ||
+                el.getAttribute('data-i18n-aria-label');
+
+              if (key && esTranslations[key]) {
+                el.setAttribute('aria-label', esTranslations[key]);
+              }
+            });
+
+          document.querySelectorAll('[data-i18n-href]').forEach((el) => {
+            const key = el.getAttribute('data-i18n-href');
+            if (key && esTranslations[key]) {
+              el.setAttribute('href', esTranslations[key]);
+            }
+          });
+        };
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', apply, { once: true });
+        } else {
+          apply();
+        }
+      })();
+      </script>
+   </head>
+  <body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+    <slot />
+  </body>
+</html>
