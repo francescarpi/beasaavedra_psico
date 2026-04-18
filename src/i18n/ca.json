@@ -9,34 +9,28 @@
   "nav.mobile.open": "Obrir menú de navegació",
   "nav.mobile.close": "Tancar menú",
   "nav.mobile.label": "Menú de navegació",
-
   "lang.toggle.label": "Seleccionar idioma",
   "lang.ca.label": "Català",
   "lang.es.label": "Espanyol",
-
   "hero.title": "El teu benestar emocional",
   "hero.titleEmphasis": "comença aquí.",
-  "hero.description": "Un espai segur per reconnectar amb tu mateix a través d'una teràpia empàtica, professional i profundament humana.",
+  "hero.description": "Un espai segur per reconnectar amb tú mitjançant una teràpia empàtica, professional i profundament humana.",
   "hero.cta.primary": "Demanar Cita",
   "hero.cta.secondary": "Saber-ne més",
   "hero.bg.alt": "Fulles verdes suaus en desenfocament amb llum solar filtrant-se entre les branques, creant una atmosfera natural i tranquil·la",
   "hero.portrait.alt": "Retrat professional d'una psicòloga amb un somriure càlid i empàtic, il·luminació natural suau, fons neutre",
-
   "quote.text": "La psicoteràpia és un viatge compartit cap a la claredat, on cada pas compta per sanar el present.",
-
   "about.title": "El meu enfocament i filosofia",
   "about.p1": "Entenc la psicologia no només com la resolució de conflictes, sinó com una eina de creixement personal. El meu compromís és oferir-te un acompanyament basat en l'evidència científica i la calidesa humana.",
-  "about.p2": "Amb anys d'experiència en l'àmbit clínic, he desenvolupat un mètode que combina el rigor professional amb una escolta activa i sense judicis, adaptant cada intervenció a les teves necessitats úniques.",
+  "about.p2": "Amb anys d'experiència en l'àmbit sanitari, ofereixo una intervenció psicoterapèutica que combina el rigor professional amb una escolta activa i sense judicis, adaptant cada intervenció a les teves necessitats úniques.",
   "about.stats.years": "Anys d'experiència",
   "about.stats.yearsValue": "10+",
   "about.stats.people": "Persones acompanyades",
   "about.stats.peopleValue": "1.2k+",
   "about.credential.text": "Col·legiada nº 27814 · COPC",
   "about.image.alt": "Terapeuta en un despatx modern i lluminós, asseguda còmodament, reflectint professionalitat i obertura",
-
   "services.title": "Àrees d'Acompanyament",
   "services.subtitle": "Especialitats dissenyades per abordar els reptes de la vida moderna des de la calma i el rigor professional.",
-
   "services.adults.title": "Psicoteràpia adults",
   "services.adults.description": "Acompanyament individual per a etapes vitals i desafiaments emocionals.",
   "services.adults.items.0": "Trastorns de l'estat d'ànim",
@@ -47,9 +41,9 @@
   "services.adults.items.5": "Processos de dol",
   "services.adults.items.6": "Trastorns de la conducta alimentària",
   "services.adults.items.7": "Trastorns del son",
-  "services.adults.items.8": "Traumes",
+  "services.adults.items.8": "Trauma",
   "services.adults.items.9": "Trastorns de la personalitat",
-
+  "services.adults.items.10": "Psicooncologia",
   "services.children.title": "Psicoteràpia infantil i juvenil",
   "services.children.description": "Espai de suport per al creixement i desenvolupament emocional en etapes primerenques.",
   "services.children.items.0": "Trastorns de la conducta",
@@ -63,7 +57,6 @@
   "services.children.items.8": "Fòbies",
   "services.children.items.9": "Pors infantils",
   "services.children.items.10": "Trauma",
-
   "services.reeducation.title": "Reeducació",
   "services.reeducation.description": "Intervenció psicopedagògica per optimitzar els processos d'aprenentatge.",
   "services.reeducation.items.0": "Trastorns de l'aprenentatge",
@@ -71,21 +64,19 @@
   "services.reeducation.items.2": "Dislèxia i discalcúlia",
   "services.reeducation.items.3": "Lectoescriptura",
   "services.reeducation.items.4": "Estimulació cognitiva",
-  "services.reeducation.items.5": "Trastorn de dèficit d'atenció amb o sense hiperactivitat TDAH",
-
+  "services.reeducation.items.5": "Trastorn de dèficit d'atenció amb o sense hiperactivitat (TDAH)",
   "centers.title": "Centres on visito",
   "centers.subtitle": "Troba el teu espai de calma en qualsevol d'aquests centres on visito.",
-
   "contact.title": "Contacta amb mi",
-  "contact.description": "Resol els teus dubtes o sol·licita una primera entrevista informativa. Estaré encantada d'ajudar-te.",
-  "contact.phone.label": "Truca'ns",
-  "contact.email.label": "Escriu-nos",
-  "footer.brand": "Beatriz Saavedra Psicologia",
+  "contact.description": "Estaré encantada d'ajudar-te.",
+  "contact.phone.label": "Contacte",
+  "contact.email.label": "Correu electrònic",
+  "footer.brand": "Beatriz Saavedra - Psicòloga Sanitària",
   "footer.tagline": "Un espai de calma per cultivar la teva salut mental i emocional.",
   "footer.privacy": "Política de Privacitat",
   "footer.terms": "Termes del Servei",
   "footer.portal": "Portal del Pacient",
   "footer.social.instagram.label": "Seguir a Instagram",
   "footer.social.linkedin.label": " veure el perfil a LinkedIn",
-  "footer.copyright": "© 2026 Beatriz Saavedra Psicologia. Tots els drets reservats."
+  "footer.copyright": "© 2026 Beatriz Saavedra. Tots els drets reservats."
 }
