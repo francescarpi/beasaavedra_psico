@@ -11,4 +11,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: justincy/github-action-npm-release@v1.2.0
+      - uses: justincy/github-action-npm-release@2.0.2
