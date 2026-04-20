@@ -45,3 +45,38 @@
 - Always explain plan before executing changes
 - Wait for explicit "adelante" or approval before making edits
 - Never auto-commit or auto-push — user reviews changes first
+
+## Releases
+
+### Version bump
+Follow semver when updating `version` in `package.json`:
+- **Patch** (x.x.**1**) → bug fixes only
+- **Minor** (x.**1**.0) → new features, backward compatible
+- **Major** (**1**.x.x) → breaking changes
+
+### How it works
+The release workflow (`.github/workflows/release.yml`) triggers automatically when:
+1. Push to `main` branch
+2. `package.json` file has changed
+
+The workflow:
+- Reads the new version from `package.json`
+- Creates a git tag `v{x.y.z}`
+- Creates a GitHub Release with **auto-generated changelog** from PRs since last release
+
+### PR Labels
+For meaningful changelogs, add labels to PRs before merging:
+- `feat` → New features
+- `fix` → Bug fixes
+- `chore` → Maintenance
+- `refactor` → Code refactoring
+
+### Release Example
+```
+1. PR: "feat: add language toggle to mobile" → label: feat
+2. Merge PR to main
+3. Update version in package.json: 2.0.1 → 2.1.0
+4. Commit: "release: v2.1.0"
+5. Push to main
+6. Workflow runs → creates tag v2.1.0 + Release with changelog
+```
