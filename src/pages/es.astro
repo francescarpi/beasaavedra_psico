@@ -1,0 +1,16 @@
+---
+// src/pages/es.astro — legacy redirect from old /es URL
+// Switches to Spanish and redirects to home
+---
+<html lang="es">
+<head>
+  <meta http-equiv="refresh" content="0;url=/" />
+  <script is:inline>
+    localStorage.setItem('lang', 'es');
+    document.documentElement.lang = 'es';
+  </script>
+</head>
+<body>
+  <p>Redirecting...</p>
+</body>
+</html>
