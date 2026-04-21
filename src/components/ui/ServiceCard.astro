@@ -55,11 +55,11 @@ const descText = t(service.descriptionKey, 'ca');
 
 <div class={`${v.card} rounded-3xl p-10 shadow-sm`}>
   <!-- Header -->
-  <div class="flex items-center gap-4 mb-10">
-    <div class={`w-16 h-16 rounded-2xl ${v.iconBg} flex items-center justify-center`}>
+  <div class="flex items-start gap-4 mb-10">
+    <div class={`w-12 h-12 lg:w-16 lg:h-16 rounded-2xl ${v.iconBg} flex items-center justify-center flex-shrink-0`}>
       <Icon
         name={service.icon}
-        class={`${v.icon} text-4xl`}
+        class={`${v.icon} text-2xl lg:text-4xl`}
         aria-hidden="true"
       />
     </div>
